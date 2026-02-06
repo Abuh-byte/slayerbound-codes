@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(600px at top, rgba(56,189,248,0.15), transparent),
+    linear-gradient(to bottom, #020617, #000);
+  color: #e5e7eb;
+}
+
+header {
+  padding: 4.5rem 1rem 3rem;
+  text-align: center;
+  animation: fadeDown 0.9s ease;
+}
+
+header h1 {
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: #38bdf8;
+  letter-spacing: -1px;
+}
+
+header p {
+  margin-top: 0.6rem;
+  opacity: 0.75;
+  font-size: 1rem;
+}
+
+main {
+  max-width: 920px;
+  margin: auto;
+  padding: 1rem;
+}
+
+section {
+  margin-bottom: 3.5rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  color: #7dd3fc;
+  font-weight: 700;
+}
+
+.info p {
+  max-width: 680px;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.codes {
+  display: grid;
+  gap: 1rem;
+}
+
+.code-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(6px);
+  animation: fadeUp 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.code-card:hover {
+  border-color: rgba(56,189,248,0.5);
+  box-shadow: 0 0 25px rgba(56,189,248,0.12);
+  transform: translateY(-2px);
+  transition: 0.25s ease;
+}
+
+.code {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.copy-btn {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  border: none;
+  padding: 0.45rem 1.1rem;
+  border-radius: 10px;
+  color: #020617;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.copy-btn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+.copy-btn.copied {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.updated {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+footer {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.45;
+}
+
+/* Animations */
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .code-card {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .copy-btn {
+    width: 100%;
+  }
+}
