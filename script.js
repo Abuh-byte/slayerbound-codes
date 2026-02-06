@@ -2,7 +2,8 @@ const codes = [
   "RELEASE",
   "guizerayt",
   "100KVISITS",
-  "1KLIKES"
+  "1KLIKES",
+  "morespins"
 ];
 
 const codesSection = document.querySelector(".codes");
