@@ -7,7 +7,7 @@ const codes = [
   "GOSLAYERBOUND",
   "datafix",
   "YOKO",
-  "300KVISITS
+  "300KVISITS"
 ];
 
 const codesSection = document.querySelector(".codes");
