@@ -1,8 +1,5 @@
 const codes = [
-  "RELEASE",
   "guizerayt",
-  "100KVISITS",
-  "1KLIKES",
   "morespins",
   "GOSLAYERBOUND",
   "datafix",
