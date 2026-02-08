@@ -3,7 +3,11 @@ const codes = [
   "guizerayt",
   "100KVISITS",
   "1KLIKES",
-  "morespins"
+  "morespins",
+  "GOSLAYERBOUND",
+  "datafix",
+  "YOKO",
+  "300KVISITS
 ];
 
 const codesSection = document.querySelector(".codes");
