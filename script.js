@@ -4,7 +4,8 @@ const codes = [
   "GOSLAYERBOUND",
   "datafix",
   "YOKO",
-  "300KVISITS"
+  "300KVISITS",
+  "thxfor5k"
 ];
 
 const codesSection = document.querySelector(".codes");
