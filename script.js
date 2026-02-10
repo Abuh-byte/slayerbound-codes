@@ -1,10 +1,9 @@
 const codes = [
-  "guizerayt",
   "morespins",
   "GOSLAYERBOUND",
   "datafix",
   "YOKO",
-  "300KVISITS",
+  "1KLIKES",
   "thxfor5k"
 ];
 
