@@ -4,7 +4,9 @@ const codes = [
   "datafix",
   "YOKO",
   "1KLIKES",
-  "thxfor5k"
+  "thxfor5k",
+  "1MVISITS",
+  "PEAKPLAYERS"
 ];
 
 const codesSection = document.querySelector(".codes");
