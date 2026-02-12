@@ -19,7 +19,7 @@
 
 <header>
   <h1>Slayer Bound Codes</h1>
-  <p>All working codes • Updated daily • Free rewards</p>
+  <p>All working codes • Updated daily • Free rewards & boosts</p>
 </header>
 
 <main>
@@ -34,36 +34,31 @@
 
     <h2>How to Redeem Slayer Bound Codes</h2>
     <p>
-      Launch Slayer Bound on Roblox. On the Home screen, click <strong>Codes</strong>,
-      enter a valid code and press redeem. Rewards are added instantly to your account.
+      Launch Slayer Bound on Roblox. On the Home screen, tap <strong>Codes</strong>,
+      enter a valid code and press redeem to claim your reward instantly.
     </p>
   </section>
 
   <section class="codes">
     <h2>Active Slayer Bound Codes</h2>
-
     <p class="updated">
       Last updated: <span id="date"></span>
     </p>
-
-    <!-- Aqui entram os códigos depois -->
+    <!-- Active codes load here -->
   </section>
-  
+
   <section class="expired-codes">
-  <h2>Expired Slayer Bound Codes</h2>
-
-  <p class="expired-info">
-    These Slayer Bound codes have expired and no longer provide rewards.
-    They are kept here for reference and tracking purposes.
-  </p>
-
-  <ul>
-    <li><strong>RELEASE</strong> – Expired February 2026</li>
-    <li><strong>guizerayt</strong> – Expired February 2026</li>
-    <li><strong>100KVISITS</strong> – Expired February 2026</li>
-    <li><strong>300KVISITS</strong> – Expired February 2026</li>
-  </ul>
-</section>
+    <h2>Expired Slayer Bound Codes</h2>
+    <p class="expired-info">
+      These Slayer Bound codes have expired and no longer provide rewards. They are kept here for reference.
+    </p>
+    <ul>
+      <li><strong>RELEASE</strong> – Expired February 2026</li>
+      <li><strong>guizerayt</strong> – Expired February 2026</li>
+      <li><strong>100KVISITS</strong> – Expired February 2026</li>
+      <li><strong>300KVISITS</strong> – Expired February 2026</li>
+    </ul>
+  </section>
 
   <section class="faq">
     <h2>Slayer Bound Codes FAQ</h2>
@@ -71,32 +66,28 @@
     <details>
       <summary>Why isn’t my Slayer Bound code working?</summary>
       <p>
-        Codes may expire, be case-sensitive or already redeemed on your account.
-        Make sure the code is typed exactly as shown and check if it’s still active.
+        Codes may expire, be case-sensitive or already redeemed. Make sure the code is typed exactly as shown and check if it’s still active.
       </p>
     </details>
 
     <details>
       <summary>How often are new Slayer Bound codes released?</summary>
       <p>
-        New codes are usually released during updates, events or milestones.
-        This page is checked daily to ensure all codes are valid and up to date.
+        New Slayer Bound codes are usually released during updates, events or milestones. This page is checked daily to ensure all codes are valid and up to date.
       </p>
     </details>
 
     <details>
       <summary>Can I use Slayer Bound codes more than once?</summary>
       <p>
-        No. Each code can only be redeemed once per account.
-        Attempting to reuse a code will result in an error.
+        No. Each code can only be redeemed once per account. Attempting to reuse a code will result in an error.
       </p>
     </details>
 
     <details>
       <summary>Is this site affiliated with Roblox?</summary>
       <p>
-        No. This website is not affiliated with Roblox or the developers of Slayer Bound.
-        All trademarks belong to their respective owners.
+        No. This website is not affiliated with Roblox or the developers of Slayer Bound. All trademarks belong to their respective owners.
       </p>
     </details>
   </section>
@@ -105,18 +96,11 @@
 
 <footer>
   <p>© 2026 Slayer Bound Codes • Not affiliated with Roblox</p>
-  <p>Made by kojidaazuth.</p>
+  <p>Made by wwhitdaazuth.</p>
+  <p>Want my Services? <span>Talk with me at Discord! @wwhitdaazuth</span></p>
 </footer>
 
-<script>
-  const date = new Date();
-  document.getElementById("date").textContent = date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  });
-</script>
-
+<!-- Breadcrumb Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -144,6 +128,7 @@
 }
 </script>
 
+<!-- FAQ Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -185,23 +170,59 @@
 }
 </script>
 
-<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const codes = [
+    { code: "morespins", reward: " — +20 Spins" },
+    { code: "1KLIKES", reward: " — Breathing/Race Reset" },
+    { code: "GOSLAYERBOUND", reward: " — +20 Spins" },
+    { code: "datafix", reward: " — +20 Spins" },
+    { code: "YOKO", reward: " — +5 Spins" },
+    { code: "thxfor5k", reward: " — +50 Spins" },
+    { code: "1MVISITS", reward: " — Stats Reset" },
+    { code: "PEAKPLAYERS", reward: " — Breathing/Race Reset" }
+  ];
 
-</body>
-</html>    <h2>Active Slayer Bound Codes</h2>
+  const codesSection = document.querySelector(".codes");
+  const updatedText = document.querySelector(".updated");
 
-    <p class="updated">
-      Last updated: <span id="date"></span>
-    </p>
-  </section>
+  codes.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.className = "code-card";
+    card.style.animationDelay = `${index * 0.08}s`;
 
-</main>
+    card.innerHTML = `
+      <div class="code-info">
+        <span class="code">${item.code}</span>
+        <span class="reward">${item.reward}</span>
+      </div>
+      <button class="copy-btn">Copy</button>
+    `;
 
-<footer>
-  <p>© 2026 Slayer Bound Codes • Not affiliated with Roblox</p>
-  <p>Feito por kojidaazuth.</p>
-</footer>
+    codesSection.insertBefore(card, updatedText);
+  });
 
-<script src="script.js"></script>
+  document.addEventListener("click", e => {
+    if (!e.target.classList.contains("copy-btn")) return;
+
+    const button = e.target;
+    const code = button.previousElementSibling.querySelector(".code").innerText;
+
+    navigator.clipboard.writeText(code);
+
+    button.innerText = "Copied";
+    button.classList.add("copied");
+
+    setTimeout(() => {
+      button.innerText = "Copy";
+      button.classList.remove("copied");
+    }, 1400);
+  });
+
+  document.getElementById("date").innerText =
+    new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+});
+</script>
+
 </body>
 </html>
