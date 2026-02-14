@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+  color: white;
+  overflow-x: hidden;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header {
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(90deg,#00f5ff,#ff00d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  opacity: .8;
+  margin-top: 10px;
+}
+
+.players-online {
+  margin-top: 20px;
+  padding: 10px 25px;
+  display: inline-block;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+#searchInput {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 250px;
+}
+
+.codes-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  padding: 0 20px;
+}
+
+.code-card {
+  background: rgba(255,255,255,0.06);
+  padding: 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  transition: .3s;
+}
+
+.code-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px rgba(255,0,200,.4);
+}
+
+.copy-btn {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg,#00f5ff,#ff00d4);
+  font-weight: 600;
+}
+
+.creator {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.creator-card {
+  display: flex;
+  gap: 20px;
+  max-width: 800px;
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  align-items: center;
+}
+
+.creator-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ranking {
+  text-align: center;
+  padding: 40px;
+}
+
+.ranking ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.ranking li {
+  margin: 8px 0;
+  opacity: .8;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: .6;
+}
+
+@media(max-width:700px){
+  .creator-card{
+    flex-direction: column;
+    text-align: center;
+  }
+}

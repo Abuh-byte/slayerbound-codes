@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel</title>
+</head>
+<body>
+
+<h1>Admin Panel</h1>
+
+<button id="loginBtn">Login with Google</button>
+<button id="logoutBtn" style="display:none;">Logout</button>
+
+<div id="adminPanel" style="display:none;">
+  <h2>Add Code</h2>
+
+  <input id="codeInput" placeholder="Code">
+  <input id="rewardInput" placeholder="Reward">
+  <label>
+    Active?
+    <input type="checkbox" id="activeInput" checked>
+  </label>
+  <button onclick="addCode()">Add Code</button>
+
+  <h3>Existing Codes</h3>
+  <ul id="codeList"></ul>
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, push, set, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDJm5Om9f2b7f9L85yIREEu6YugO-_Zxak",
+  authDomain: "slayerbound-codes.firebaseapp.com",
+  databaseURL: "https://slayerbound-codes-default-rtdb.firebaseio.com",
+  projectId: "slayerbound-codes",
+  storageBucket: "slayerbound-codes.firebasestorage.app",
+  messagingSenderId: "433381473251",
+  appId: "1:433381473251:web:fff06e842e4be03b597ed6",
+  measurementId: "G-TCJ9NRW6HF"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+const adminPanel = document.getElementById("adminPanel");
+const codeList = document.getElementById("codeList");
+
+const allowedEmail = "pedrohenriqueaoba223@gmail.com";
+
+loginBtn.onclick = () => {
+  signInWithPopup(auth, provider);
+};
+
+logoutBtn.onclick = () => {
+  signOut(auth);
+};
+
+onAuthStateChanged(auth, (user) => {
+  if (user && user.email === allowedEmail) {
+    loginBtn.style.display = "none";
+    logoutBtn.style.display = "inline";
+    adminPanel.style.display = "block";
+    loadCodes();
+  } else {
+    loginBtn.style.display = "inline";
+    logoutBtn.style.display = "none";
+    adminPanel.style.display = "none";
+  }
+});
+
+window.addCode = function() {
+  const codeInput = document.getElementById("codeInput");
+  const rewardInput = document.getElementById("rewardInput");
+  const activeInput = document.getElementById("activeInput");
+
+  if (!codeInput.value || !rewardInput.value) return;
+
+  const newRef = push(ref(db, "codes"));
+
+  set(newRef, {
+    code: codeInput.value,
+    reward: rewardInput.value,
+    active: activeInput.checked,
+    createdAt: Date.now()
+  });
+
+  codeInput.value = "";
+  rewardInput.value = "";
+};
+
+function loadCodes() {
+  onValue(ref(db, "codes"), (snapshot) => {
+    codeList.innerHTML = "";
+    const data = snapshot.val();
+    if (!data) return;
+
+    Object.entries(data).forEach(([id, item]) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+        ${item.code} - ${item.reward} - ${item.active ? "Active" : "Expired"}
+        <button onclick="deleteCode('${id}')">Delete</button>
+      `;
+      codeList.appendChild(li);
+    });
+  });
+}
+
+window.deleteCode = function(id){
+  remove(ref(db, "codes/" + id));
+};
+
+</script>
+
+</body>
+</html>
